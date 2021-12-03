@@ -1,0 +1,55 @@
+:root{
+    --bg-primary : #F38E82;
+    --bg-secondary : #FBDB89;
+    --bg-ternary : #F48982;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&family=Poppins:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+
+.bgd-primary{
+    background-color : var(--bg-primary);
+    color : #ffffff;
+}
+
+.bgd-secondary{
+    background-color: var(--bg-secondary);
+    color : #000000;
+}
+
+html{
+    height:100%;
+}
+
+body{
+    height:100%;
+    font-family : 'Poppins', sans-serif;
+    background-image: linear-gradient(var(--bg-ternary), var(--bg-secondary) );
+}
+
+/* login pages */
+.login-box{
+    border-radius: 10px;
+}
+
+.login-box form input{
+    margin:20px auto;
+}
+
+/* wellcome page */
+h1.nama-produk{
+    font-family : 'Oleo Script', cursive;
+    font-weight: bold;
+    font-size:150px;
+}
+
+.main-menu{
+    position:absolute;
+    width:100%;
+    bottom : 0;
+}
+
+.main-menu .col{
+    height:50px;
+    line-height:50px;
+}

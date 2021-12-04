@@ -2,6 +2,7 @@
     --bg-primary : #F38E82;
     --bg-secondary : #FBDB89;
     --bg-ternary : #F48982;
+    --bg-NonActive : #ffffff
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Oleo+Script&family=Poppins:wght@200;300&display=swap');
@@ -53,3 +54,26 @@ h1.nama-produk{
     height:50px;
     line-height:50px;
 }
+
+/*menu page*/
+.main-tab{
+    width:100%;
+    margin-top: 1%;
+}
+
+.main-tab .col{
+
+    height:50px;
+    line-height:50px;
+}
+
+.bgd-NonActive{
+    background-color : var(--bg-NonActive);
+    color : #000000;
+}
+
+.bgd-Active{
+    background-color: var(--bg-secondary);
+    color : #000000;
+}
+

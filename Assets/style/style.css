@@ -35,7 +35,9 @@ body{
 .login-box form input{
     margin:20px auto;
 }
-
+.center{
+    margin-top: 200px;
+}
 /* wellcome page */
 h1.nama-produk{
     font-family : 'Oleo Script', cursive;

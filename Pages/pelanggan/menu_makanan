@@ -30,10 +30,10 @@
     <div class="main-menu">
         <div class="container-fluid" style="height:100px">
             <div class="row bgd-secondary">
-                <div class="col d-flex justify-content-center bgd-primary">
+                <div class="col d-flex justify-content-center ">
                     <span>Wellcome</span>
                 </div>
-                <div class="col d-flex justify-content-center ">
+                <div class="col d-flex justify-content-center bgd-primary">
                     <span>Menu</span>
                 </div>
                 <div class="col d-flex justify-content-center ">

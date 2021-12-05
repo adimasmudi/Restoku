@@ -22,6 +22,7 @@ html{
 }
 
 body{
+    scroll-behavior: auto;
     height:100%;
     font-family : 'Poppins', sans-serif;
     background-image: linear-gradient(var(--bg-ternary), var(--bg-secondary) );
@@ -52,4 +53,109 @@ h1.nama-produk{
 .main-menu .col{
     height:50px;
     line-height:50px;
+}
+/*---------------------------Detail pesanan---------------------------*/
+.center{
+    margin-top: 200px;
+}
+
+.botnav{
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    height:55px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    background-color: #F38E82;
+    overflow-x: auto;
+    display:flex;
+}
+
+.topnav{
+    position: auto;
+    top: 0;
+    margin-top:50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 40px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    background-color: #F38E82;
+    overflow-x: auto;
+    display:flex;
+}
+
+.botnav-link{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family:
+    sans-serif;
+    font-size: 14px;
+    color: #444444;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.botnav-link:hover{
+    color:#FBDB89;
+}
+
+.botlink-active{
+    color:#ffffff;
+    border-bottom: 5px solid #ffffff;
+}
+
+.toplink-active{
+    color:#ffffff;
+    border-top: 5px solid #ffffff;
+}
+
+.content{
+    box-shadow: 0 0 5px;
+    background-color:white;
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+.Fname{
+    padding-top: 10px;
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    font-weight: 200;
+    text-align: left;
+    padding-left: 20px;
+}
+.Ftype{
+    color:red;
+    font-size: 14px;
+    text-align: right;
+    padding-right: 20px;
+}
+.Fdesc{
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 30px;
+    font-size:12px;
+    text-align: justify;
+}
+.Fstok{
+    padding-top: 10px;
+    color:green;
+    padding-left: 10px;
+}
+.Fprice{
+    color:#F48982;
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+.Fimg{
+    width: 150px;
+    height:150px
 }

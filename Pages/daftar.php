@@ -1,3 +1,76 @@
+<?php
+
+require_once("config.php");
+
+if(isset($_POST['daftar'])){
+
+    // filter data yang diinputkan
+    $nama = filter_input(INPUT_POST, 'nama', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+
+    
+    // enkripsi password
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
+    // alamat dan pekerjaan
+    $alamat = filter_input(INPUT_POST, 'alamat', FILTER_SANITIZE_STRING);
+    $pekerjaan = filter_input(INPUT_POST, 'pekerjaan', FILTER_SANITIZE_STRING);
+    $nomer_hp = filter_input(INPUT_POST, 'nomer-hp', FILTER_VALIDATE_INT);
+
+    
+    // cek ketersediaan username
+    $stmt = $db->prepare("SELECT Username_pelanggan FROM pelanggan WHERE Username_pelanggan = :username");
+    $stmt->execute([
+        'username' => $username
+    ]);
+    $user_exists = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if(isset($user_exists) && !empty($user_exists)){
+        echo '<script>alert("Username tersebut sudah ada");</script>';
+    }else{
+
+        // image upload
+        if(array_key_exists('photo',$_FILES)){
+            if($_FILES['photo']['name']){
+                mkdir("../Assets/Images/user/".$username);
+                move_uploaded_file($_FILES['photo']['tmp_name'], "../Assets/Images/user/$username/".$_FILES['photo']['name']);
+                $img="../Assets/Images/user/$username/".$_FILES['photo']['name'];
+            }
+        }else{
+            echo "tidak ada foto";
+        }
+
+        // menyiapkan query
+        $sql = "INSERT INTO pelanggan (Nama_pelanggan, Username_pelanggan, Foto_Pelanggan  , Email_pelanggan, Password_pelanggan, Alamat, Pekerjaan, No_tlp_pelanggan) 
+            VALUES (:nama, :username,:photo, :email, :password, :alamat, :pekerjaan, :no_tlp)";
+        $stmt = $db->prepare($sql);
+
+        // bind parameter ke query
+        $params = array(
+        ":nama" => $nama,
+        ":username" => $username,
+        ":photo" => $img,
+        ":email" => $email,
+        ":password" => $password,
+        ":alamat" => $alamat,
+        ":pekerjaan" => $pekerjaan,
+        ":no_tlp" => $nomer_hp
+        );
+
+        // eksekusi query untuk menyimpan ke database
+        $saved = $stmt->execute($params);
+
+        // jika query simpan berhasil, maka user sudah terdaftar
+        // maka alihkan ke halaman login
+        if($saved) header("Location: login.php");
+    }
+
+    
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +86,7 @@
 </head>
 <body style="overflow:hidden">
     <div class="container-md bg-light mt-5 h-75 w-50" style="border-radius:10px">
-        <form action="#" method="POST">
+        <form action="#" method="POST" enctype="multipart/form-data">
             <div class="row mb-2">
                 <div class="col">
                     <h1 class="text-center mt-4">Daftar</h1>
@@ -21,9 +94,11 @@
             </div>
             <div class="row mb-4">
                 <div class="col-md-6">
-                    <input type="file" value="upload foto" class="form-control">
+                    <input type="file" name="photo" value="upload foto" class="form-control">
                 </div>
-                <div class="col-md-6 d-flex justify-content-center"></div>
+                <div class="col-md-6 ps-5">
+                    <input type="text" name="username" placeholder="username" class="form-control ">
+                </div>
             </div>
             <div class="row mb-4">
                 <div class="col-md-6 d-flex justify-content-center">
@@ -59,7 +134,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-6 d-flex justify-content-center">
-                    <p>sudah punya akun? <a href="login.html"><span>masuk</span></a></p>
+                    <p>sudah punya akun? <a href="login.php"><span>masuk</span></a></p>
                 </div>
             </div>
         </form>

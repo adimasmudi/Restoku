@@ -13,55 +13,58 @@
 </head>
 <body style='overflow : hidden'>
 
-    <div class="main-tab">
+   <div class="main-tab">
         <div class="container-fluid">
             <div class="d-flex justify-content-center bgd-NonActive">
+                <div class="col d-flex justify-content-center ">
+                    <a href="menu_makanan.php"> Makanan</a>
+                </div>
                 <div class="col d-flex justify-content-center bgd-Active">
-                    <a href="menu_makanan.html"> Makanan</a>
+                    <a href="menu_minuman.php">Minuman</a>
                 </div>
                 <div class="col d-flex justify-content-center ">
-                    <a href="menu_minuman.html">Minuman</a>
-                </div>
-                <div class="col d-flex justify-content-center ">
-                    <a href="menu_camilan.html">Camilan</a>
+                    <a href="menu_camilan.php">Camilan</a>
             </div>
         </div>
     </div>
     <section class="container my-3 pt-3 pb-3" >
         <div class="row">
             <div class="col-lg-2 col-md-12 col-15 ">
-                <img class="size img-fluid" src="../../Assets/img/grepek.jpeg" alt="">
+                <img class="size img-fluid" src="../../Assets/image/background.png" alt="">
             </div>
             <div class="col">
-                <h3>Nama Makanan</h3>
+                <h3>Nama Minuman</h3>
                 <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                 consequat.</h6>
                 <h6 class=" clr mt-3">Tersedia : 10 porsi</h6>
                 <div class="d-flex justify-content-end">
-                    <p><del>Rp. 42.000</del>  Rp.35.000</p>
+                    <p><del>Rp. 32.000</del>  Rp.25.000</p>
                     <a class="tombol" href="pesanan_belum_bayar.html">Pesan</a>
                 </div>
                 
             </div>
         </div>
     </section>
-
+    
     <div class="main-menu">
         <div class="container-fluid" style="height:100px">
             <div class="row bgd-secondary">
                 <div class="col d-flex justify-content-center">
-                    <a href="index.html"><span>Wellcome</span></a>
+                    <a href="index.php"><span>Wellcome</span></a>
                 </div>
                 <div class="col d-flex justify-content-center bgd-primary">
-                    <a href="menu_makanan.html"><span>menu</span></a>
+                    <a href="menu_makanan.php"><span>menu</span></a>
                 </div>
                 <div class="col d-flex justify-content-center ">
-                    <a href="pesanan_belum_bayar.html"><span>Pesanan</span></a>
+                    <a href="pesanan_belum_bayar.php"><span>Pesanan</span></a>
                 </div>
                 <div class="col d-flex justify-content-center ">
-                    <a href="profil.html"><span>Profil</span></a>
+                    <a href="profil.php"><span>Update Profil</span></a>
+                </div>
+                <div class="col d-flex justify-content-center ">
+                    <a href="../logout.php"><span>Logout</span></a>
                 </div>
             </div>
         </div>

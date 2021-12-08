@@ -17,13 +17,13 @@
         <div class="container-fluid">
            <div class="d-flex justify-content-center bgd-NonActive">
                 <div class="col d-flex justify-content-center bgd-Active">
-                    <a href="pesanan_belum_bayar.html">Belum Bayar</a>
+                    <a href="pesanan_belum_bayar.php">Belum Bayar</a>
                 </div>
                 <div class="col d-flex justify-content-center ">
-                    <a href="pesanan_diproses.html">Di proses</a>
+                    <a href="pesanan_diproses.php">Di proses</a>
                 </div>
                 <div class="col d-flex justify-content-center ">
-                    <a href="pesanan_selesai.html">Selesai</a>
+                    <a href="pesanan_selesai.php">Selesai</a>
             </div>
         </div>
     </div>
@@ -67,16 +67,19 @@
         <div class="container-fluid" style="height:100px">
             <div class="row bgd-secondary">
                 <div class="col d-flex justify-content-center">
-                    <a href="index.html"><span>Wellcome</span></a>
+                    <a href="index.php"><span>Wellcome</span></a>
                 </div>
                 <div class="col d-flex justify-content-center ">
-                    <a href="menu_makanan.html"><span>menu</span></a>
+                    <a href="menu_makanan.php"><span>menu</span></a>
                 </div>
                 <div class="col d-flex justify-content-center bgd-primary">
-                    <a href="pesanan_belum_bayar.html"><span>Pesanan</span></a>
+                    <a href="pesanan_belum_bayar.php"><span>Pesanan</span></a>
                 </div>
                 <div class="col d-flex justify-content-center ">
-                    <a href="profil.html"><span>Profil</span></a>
+                    <a href="profil.php"><span>Update Profil</span></a>
+                </div>
+                <div class="col d-flex justify-content-center ">
+                    <a href="../logout.php"><span>Logout</span></a>
                 </div>
             </div>
         </div>

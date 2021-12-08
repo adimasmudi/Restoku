@@ -39,7 +39,7 @@ if(isset($_POST['daftar'])){
                 $img="../Assets/Images/user/$username/".$_FILES['photo']['name'];
             }
         }else{
-            echo "tidak ada foto";
+            echo "<script>alert('Anda harus mengupload foto');</script>";
         }
 
         // menyiapkan query

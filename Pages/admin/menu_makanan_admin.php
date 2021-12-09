@@ -54,7 +54,7 @@ $makanan->execute([
             
                 <div class="row row-menu bg-light mb-5pt-4 pb-4 pe-4 ps-4" style="border-radius:10px">
                     <div class="col-lg-2 col-md-12 col-15 ">
-                        <img class="size img-fluid" src="<?php echo $row['Gambar_menu']; ?>" alt="">
+                        <img class="size img-fluid" src="<?php echo $row['Gambar_menu']; ?>" alt="<?php echo $row['Nama_menu']; ?>">
                     </div>
                     <div class="col">
                         <h3><?php echo $row['Nama_menu']; ?></h3>
@@ -63,10 +63,10 @@ $makanan->execute([
                         <div class="d-flex justify-content-end">
                             <p><del>Rp. <?php echo $row['Harga_menu']; ?></del>  Rp.<?php echo $row['Harga_menu']-$row['Diskon']; ?></p>
                             <button>
-                                <a class="tombol2" href="edit_menu.php">Edit</a>
+                                <a class="tombol2" href="edit_menu.php?<?php echo $row['ID_menu']; ?>">Edit</a>
                             </button>
                             <button>
-                                <a class="tombol1" href="#">Hapus</a>
+                                <a class="tombol1" href="hapus_menu.php?<?php echo $row['ID_menu']; ?>">Hapus</a>
                             </button>
                         </div>
                         

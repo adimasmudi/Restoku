@@ -1,3 +1,15 @@
+<?php
+require_once('../auth.php');
+require_once('../config.php');
+// mengambil data minuman
+$minuman = $db->prepare("SELECT * FROM menu WHERE ID_kategori=:id_kategori");
+
+
+$minuman->execute([
+    ':id_kategori' => 2
+]);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +23,7 @@
     <link rel="stylesheet" href="../../Assets/style/style.css">
     <title>Halaman Meu</title>
 </head>
-<body style='overflow : hidden'>
+<body>
 
     <div class="main-tab">
         <div class="container-fluid">
@@ -32,30 +44,32 @@
         <button class="row tombol6 d-flex justify-content-center"><a href="tambah_menu.php">Tambah Menu</a></button>
     </div>
 
-    <section class="container my-3 pt-3 pb-3" >
-        <div class="row">
+    <section class="container-md mt-4" >
+        <?php
+            while($row=$minuman->fetch()){
+        ?>
+        <div class="row row-menu bg-light mb-5pt-4 pb-4 pe-4 ps-4" style="border-radius:10px">
             <div class="col-lg-2 col-md-12 col-15 ">
-                <img class="size img-fluid" src="../../Assets/img/grepek.jpeg" alt="">
+                <img class="size img-fluid" src="<?php echo $row['Gambar_menu']; ?>" alt="<?php $row['Nama_menu']; ?>">
             </div>
             <div class="col">
-                <h3>Nama Minuman</h3>
-                <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.</h6>
-                <h6 class=" clr mt-3">Tersedia : 10 porsi</h6>
+                <h3><?php echo $row['Nama_menu']; ?></h3>
+                <h6><?php echo $row['Komposisi']; ?></h6>
+                <h6 class=" clr mt-3">Tersedia : <?php echo $row['Ketersediaan']; ?> porsi</h6>
                 <div class="d-flex justify-content-end">
-                    <p><del>Rp. 42.000</del>  Rp.35.000</p>
+                    <p><del>Rp. <?php echo $row['Harga_menu']; ?></del>  Rp.<?php echo $row['Harga_menu']-$row['Diskon']; ?></p>
                     <button>
-                        <a class="tombol2" href="edit_menu.php">Edit</a>
+                        <a class="tombol2" href="edit_menu.php?<?php echo $row['ID_menu']; ?>">Edit</a>
                     </button>
                     <button>
-                        <a class="tombol1" href="#">Hapus</a>
+                        <a class="tombol1" href="hapus_menu.php?<?php echo $row['ID_menu']; ?>">Hapus</a>
                     </button>
                 </div>
                 
             </div>
         </div>
+        <br>
+        <?php } ?>
     </section>
 
     <div class="main-menu">

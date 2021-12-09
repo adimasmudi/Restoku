@@ -73,7 +73,7 @@ if(isset($_POST['login'])){
 </head>
 <body>
     <div class="container h-75 w-50 d-flex justify-content-center align-items-center mt-5 ">
-        <div class="login-box h-50 w-50 bg-light">
+        <div class="login-box h-75 w-50 bg-light">
             <h1 class="text-center mt-2">Masuk</h1>
             <form action="#" method="POST" class="d-flex flex-column mt-4">
                 <input type="text" name="username" placeholder="username" class="form-control w-50">

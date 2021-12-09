@@ -17,13 +17,16 @@
         <div class="container-fluid" style="height:100px">
             <div class="row bgd-secondary">
                 <div class="col d-flex justify-content-center bgd-primary">
-                    <a href="index_admin.html"><span>Wellcome</span></a>
+                    <a href="index_admin.php"><span>Wellcome</span></a>
                 </div>
                 <div class="col d-flex justify-content-center ">
-                    <a href="menu_makanan_admin.html"><span>menu</span></a>
+                    <a href="menu_makanan_admin.php"><span>menu</span></a>
                 </div>
                 <div class="col d-flex justify-content-center ">
-                    <a href="pesanan-masuk.html"><span>Pesanan</span></a>
+                    <a href="pesanan-masuk.php"><span>Pesanan</span></a>
+                </div>
+                <div class="col d-flex justify-content-center ">
+                    <a href="../logout.php"><span>Logout</span></a>
                 </div>
             </div>
         </div>

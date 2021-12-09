@@ -1,14 +1,21 @@
 <?php
 
-$a = "../../sdasf/fas/fd";
-$b = explode('/',$a);
-print_r ($b[1]);
+// $a = "../../sdasf/fas/fd";
+// $b = explode('/',$a);
+// print_r ($b[1]);
 
-$bv = 'aku';
+// $bv = 'aku';
 
-$d = "dsad fadfdf fdsfd".$bv;
+// $d = "dsad fadfdf fdsfd".$bv;
 
-echo $d;
+// echo $d;
+
+$a = array(
+    "aku" => "kamu",
+    "dia" => "kita"
+);
+
+echo $a["aku"];
 
 
 ?>

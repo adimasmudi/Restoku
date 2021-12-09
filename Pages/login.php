@@ -7,13 +7,18 @@ if(isset($_POST['login'])){
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
-    $sql = "SELECT * FROM pelanggan WHERE Username_pelanggan=:username OR Email_pelanggan=:email";
+    if($username == 'admin'){
+        $sql = "SELECT * FROM admin WHERE Username_admin=:username";
+    }else{
+        $sql = "SELECT * FROM pelanggan WHERE Username_pelanggan=:username";
+    }
+
+    
     $stmt = $db->prepare($sql);
     
     // bind parameter ke query
     $params = array(
-        ":username" => $username,
-        ":email" => $username
+        ":username" => $username
     );
 
     $stmt->execute($params);
@@ -23,16 +28,30 @@ if(isset($_POST['login'])){
 
     // jika user terdaftar
     if($user){
-        // verifikasi password
-        if(password_verify(trim($password),trim($user["Password_pelanggan"]))){
-            // buat Session
-            session_start();
-            $_SESSION["user"] = $user;
-            // login sukses, alihkan ke halaman index pelanggan
-            header("Location: pelanggan/index.php");
-            
+        if($username == 'admin'){
+            // verifikasi password
+            if($password == $user["Password_admin"]){
+                // buat Session
+                session_start();
+                $_SESSION["admin"] = $user;
+                // login sukses, alihkan ke halaman index pelanggan
+                header("Location: admin/index_admin.php");
+                
+            }else{
+                echo 'salah adminnya';
+            }
         }else{
-            echo 'salah';
+            // verifikasi password
+            if(password_verify(trim($password),trim($user["Password_pelanggan"]))){
+                // buat Session
+                session_start();
+                $_SESSION["user"] = $user;
+                // login sukses, alihkan ke halaman index pelanggan
+                header("Location: pelanggan/index.php");
+                
+            }else{
+                echo 'salah';
+            }
         }
     }else{
         echo 'gak masuk';

@@ -17,19 +17,19 @@
         <div class="container-fluid">
             <div class="d-flex justify-content-center bgd-NonActive">
                 <div class="col d-flex justify-content-center ">
-                    <a href="menu_makanan_admin.html"> Makanan</a>
+                    <a href="menu_makanan_admin.php"> Makanan</a>
                 </div>
                 <div class="col d-flex justify-content-center ">
-                    <a href="menu_minuman_admin.html">Minuman</a>
+                    <a href="menu_minuman_admin.php">Minuman</a>
                 </div>
                 <div class="col d-flex justify-content-center bgd-Active">
-                    <a href="menu_camilan_admin.html">Camilan</a>
+                    <a href="menu_camilan_admin.php">Camilan</a>
             </div>
         </div>
     </div>
 
     <div>
-        <button class="row tombol6 d-flex justify-content-center"><a href="tambah_menu.html">Tambah Menu</a></button>
+        <button class="row tombol6 d-flex justify-content-center"><a href="tambah_menu.php">Tambah Menu</a></button>
     </div>
 
     <section class="container my-3 pt-3 pb-3" >
@@ -47,7 +47,7 @@
                 <div class="d-flex justify-content-end">
                     <p><del>Rp. 42.000</del>  Rp.35.000</p>
                     <button>
-                        <a class="tombol2" href="edit_menu.html">Edit</a>
+                        <a class="tombol2" href="edit_menu.php">Edit</a>
                     </button>
                     <button>
                         <a class="tombol1" href="#">Hapus</a>
@@ -62,13 +62,16 @@
         <div class="container-fluid" style="height:100px">
             <div class="row bgd-secondary">
                 <div class="col d-flex justify-content-center">
-                    <a href="index_admin.html"><span>Wellcome</span></a>
+                    <a href="index_admin.php"><span>Wellcome</span></a>
                 </div>
                 <div class="col d-flex justify-content-center bgd-primary">
-                    <a href="menu_makanan_admin.html"><span>menu</span></a>
+                    <a href="menu_makanan_admin.php"><span>menu</span></a>
                 </div>
                 <div class="col d-flex justify-content-center ">
-                    <a href="pesanan-masuk.html"><span>Pesanan</span></a>
+                    <a href="pesanan-masuk.php"><span>Pesanan</span></a>
+                </div>
+                <div class="col d-flex justify-content-center ">
+                    <a href="../logout.php"><span>Logout</span></a>
                 </div>
             </div>
         </div>

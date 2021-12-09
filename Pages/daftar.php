@@ -23,7 +23,7 @@ if(isset($_POST['daftar'])){
     // cek ketersediaan username
     $stmt = $db->prepare("SELECT Username_pelanggan FROM pelanggan WHERE Username_pelanggan = :username");
     $stmt->execute([
-        'username' => $username
+        ':username' => $username
     ]);
     $user_exists = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -41,6 +41,7 @@ if(isset($_POST['daftar'])){
         }else{
             echo "<script>alert('Anda harus mengupload foto');</script>";
         }
+
 
         // menyiapkan query
         $sql = "INSERT INTO pelanggan (Nama_pelanggan, Username_pelanggan, Foto_Pelanggan  , Email_pelanggan, Password_pelanggan, Alamat, Pekerjaan, No_tlp_pelanggan) 

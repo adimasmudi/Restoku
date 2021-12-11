@@ -10,12 +10,15 @@
 
 // echo $d;
 
-$a = array(
-    "aku" => "kamu",
-    "dia" => "kita"
-);
+// $a = array(
+//     "aku" => "kamu",
+//     "dia" => "kita"
+// );
 
-echo $a["aku"];
+// echo $a["aku"];
 
+$a = 'https://aku.com';
+$c = explode('?',$a);
+print_r(sizeof($c));
 
 ?>

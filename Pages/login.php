@@ -38,7 +38,7 @@ if(isset($_POST['login'])){
                 header("Location: admin/index_admin.php");
                 
             }else{
-                echo 'salah adminnya';
+                echo '<script>Useranme atau password salah</script>';
             }
         }else{
             // verifikasi password
@@ -50,11 +50,11 @@ if(isset($_POST['login'])){
                 header("Location: pelanggan/index.php");
                 
             }else{
-                echo 'salah';
+                echo '<script>Useranme atau password salah</script>';
             }
         }
     }else{
-        echo 'gak masuk';
+        echo '<script>Useranme atau password salah</script>';
     }
 }
 ?>

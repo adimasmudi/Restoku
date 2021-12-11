@@ -56,9 +56,10 @@
         
         if(array_key_exists('foto_menu',$_FILES)){
             if($_FILES['foto_menu']['name']){
+                mkdir("../../Assets/Images/menu/".$kategori."/".$nama_menu);
                 $temp = explode(".", $_FILES["foto_menu"]["name"]);
                 $newfilename = round(microtime(true)) . '.' . end($temp);
-                unlink("".$menu["Gambar_menu"]);
+                unlink($menu["Gambar_menu"]);
                 move_uploaded_file($_FILES['foto_menu']['tmp_name'], "../../Assets/Images/menu/$kategori/".$nama_menu."/".$newfilename);
                 $img = "../../Assets/Images/menu/$kategori/".$nama_menu."/".$newfilename;
             }

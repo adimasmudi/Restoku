@@ -26,9 +26,9 @@ body{
     margin:0;
     padding:0;
     scroll-behavior: auto;
-    height:100%;
+    background-image: linear-gradient(var(--bg-ternary), var(--bg-secondary) ); 
     font-family : 'Poppins', sans-serif;
-    background-image: linear-gradient(var(--bg-ternary), var(--bg-secondary) );
+    
 }
 
 /* login pages */
@@ -215,7 +215,10 @@ mark{
 
 .main-tab{
     width:100%;
-    margin-top: 1%;
+    height:100%;
+    padding-top:1%;
+    background-image: linear-gradient(var(--bg-ternary), var(--bg-secondary) );
+
 }
 
 .main-tab .col{
@@ -319,6 +322,8 @@ del{
     border-radius: 45px;
 
 }
+
+
 input[type="number"]{
     text-align: center;
     font-size: 15px;
@@ -371,4 +376,11 @@ button{
     margin-left: 11px;
     margin-top: 3px;
 }
+
+.proses-pesanan{
+    position:fixed;
+    bottom : 200px;
+    right:200px;
+}
+
 

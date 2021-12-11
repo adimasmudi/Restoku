@@ -19,6 +19,20 @@
     // Print the link
     $id_menu = explode("?",$link)[1];
 
+    $GET_menu = "SELECT * FROM menu WHERE ID_menu=:id_menu";
+
+    $prepare = $db->prepare($GET_menu);
+
+    // bind
+    $binding = array(
+        ":id_menu" => $id_menu
+    );
+
+    $prepare->execute($binding);
+
+    $menu = $prepare->fetch(PDO::FETCH_ASSOC);
+    unlink($menu['Gambar_menu']);
+
     $sql = "DELETE FROM menu WHERE ID_menu=:id_menu";
 
     $stmt = $db->prepare($sql);

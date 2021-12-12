@@ -24,7 +24,7 @@ $camilan->execute([
     <link rel="stylesheet" href="../../Assets/style/style.css">
     <title>Halaman Menu</title>
 </head>
-<body style='overflow : hidden'>
+<body>
 
     <div class="main-tab">
         <div class="container-fluid">

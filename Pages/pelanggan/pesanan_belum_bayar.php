@@ -35,14 +35,21 @@ if(sizeof(explode("?",$link)) > 1 ){
     $params = array(
         ":id_pelanggan" => $id_pelanggan,
         ":id_menu" => $id_menu,
-        ":status" => "belum bayar"
+        ":status" => "Belum Bayar"
     );
     try{
         // eksekusi dan simpan ke database
         $saved = $stmt->execute($params);
     }catch(Exception $error){
-        echo "<script>alert('Anda sudah memesan ini sebelumnya!');</script>";
-        header("Location:menu_makanan.php");
+        // update status pesanan
+        $sql_update = "UPDATE pemesanan set status=:status WHERE ID_pelanggan=:id_pelanggan AND ID_menu=:id_menu";
+        $update_prepare = $db->prepare($sql_update);
+
+        $update_prepare->execute([
+            ":status" => "Belum Bayar",
+            ":id_pelanggan" => $id_pelanggan,
+            ":id_menu" => $id_menu
+        ]);
     }
 }
 

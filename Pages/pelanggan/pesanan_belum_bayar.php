@@ -55,10 +55,11 @@ if(sizeof(explode("?",$link)) > 1 ){
 
 
 // ambil menu yang dipesan
-$menu = $db->prepare("SELECT * FROM pemesanan WHERE status=:status");
+$menu = $db->prepare("SELECT * FROM pemesanan WHERE status=:status AND ID_pelanggan=:id_pelanggan");
 
 $menu->execute([
-    ":status" => "belum bayar"
+    ":status" => "belum bayar",
+    ":id_pelanggan" => $id_pelanggan
 ]);
 
 
@@ -107,6 +108,7 @@ $menu->execute([
                     $get_menu = $db->prepare("SELECT * FROM menu WHERE ID_menu=:id_menu");
                     $params = array(
                         ":id_menu" => $row["ID_menu"]
+                    
                     );
 
 

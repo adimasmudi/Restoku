@@ -16,6 +16,8 @@ $link .= $_SERVER['HTTP_HOST'];
 // Append the requested resource location to the URL
 $link .= $_SERVER['REQUEST_URI'];
 
+$id_pelanggan = $_SESSION["user"]["ID_Pelanggan"];
+
 if(sizeof(explode("?",$link)) > 1){
     $dpm = explode('?',$link)[1];
     $id_pelanggan = explode('=',explode('-',$dpm)[0])[1];
@@ -34,10 +36,11 @@ if(sizeof(explode("?",$link)) > 1){
 }
 
 // ambil menu yang dipesan
-$menu = $db->prepare("SELECT * FROM pemesanan WHERE status=:status");
+$menu = $db->prepare("SELECT * FROM pemesanan WHERE status=:status AND ID_pelanggan=:id_pelanggan");
 
 $menu->execute([
-    ":status" => "Selesai"
+    ":status" => "Selesai",
+    ":id_pelanggan" => $id_pelanggan
 ]);
 
 ?>

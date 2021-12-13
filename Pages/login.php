@@ -2,12 +2,22 @@
 
 require_once("config.php");
 
+
+
+
 if(isset($_POST['login'])){
 
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+    // get admin data
+    $get_admin = $db->prepare("SELECT * FROM admin WHERE Username_admin=:username_admin");
+    $get_admin->execute([
+        ":username_admin" => $username
+    ]);
 
-    if($username == 'admin'){
+    $data_admin = $get_admin->fetch(PDO::FETCH_ASSOC);
+
+    if($data_admin){
         $sql = "SELECT * FROM admin WHERE Username_admin=:username";
     }else{
         $sql = "SELECT * FROM pelanggan WHERE Username_pelanggan=:username";
@@ -24,11 +34,10 @@ if(isset($_POST['login'])){
     $stmt->execute($params);
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    
 
     // jika user terdaftar
     if($user){
-        if($username == 'admin'){
+        if($username == $data_admin["Username_admin"]){
             // verifikasi password
             if($password == $user["Password_admin"]){
                 // buat Session
